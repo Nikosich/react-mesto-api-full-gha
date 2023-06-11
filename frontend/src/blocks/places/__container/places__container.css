@@ -1,0 +1,18 @@
+.places__container {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  min-width: 100%;
+  list-style: none;
+  justify-content:safe center;
+  row-gap: 20px;
+  column-gap: 17px;
+  grid-template-columns: repeat(3, 282px);
+  grid-template-rows: repeat(2, 361px);
+}
+@media screen and (max-width:1024px) {
+  .places__container {
+    grid-template-columns: repeat(auto-fill, 282px);
+    grid-template-rows: repeat(auto-fill, 361px);
+  }
+}

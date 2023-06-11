@@ -1,0 +1,21 @@
+.content {
+  width: calc(100% - 400px);
+  padding: 0;
+  padding-top: 40px;
+}
+@media screen and (max-width:1152px) {
+  .content {
+    width: calc(100% - 200px);
+  }
+}
+@media screen and (max-width:1024px) {
+  .content {
+    width: calc(100% - 100px);
+  }
+}
+@media screen and (max-width:768px) {
+  .content {
+    width: calc(100% - 38px);
+    padding-top: 42px;
+  }
+}

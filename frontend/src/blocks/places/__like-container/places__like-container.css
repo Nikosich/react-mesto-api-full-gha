@@ -1,0 +1,6 @@
+.places__like-container {
+  display:flex;
+  height: 60%;
+  flex-direction: column;
+  justify-content: space-between;
+}

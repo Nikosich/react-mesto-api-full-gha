@@ -1,0 +1,19 @@
+.popup-form {
+  display:flex;
+  width: 430px;
+  padding-bottom: 37px;
+  background-color: white;
+  flex-direction: column;
+  font-family: 'Inter','Arial','Sans-serif';
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 10px;
+}
+@media screen and (max-width:768px) {
+  .popup-form{
+    width: 282px;
+    padding-bottom: 25px;
+    top: 123px;
+  }
+}

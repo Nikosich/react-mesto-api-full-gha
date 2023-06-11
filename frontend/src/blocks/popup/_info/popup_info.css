@@ -1,0 +1,13 @@
+.popup_info {
+  display: flex;
+  width: 430px;
+  height: 330px;
+  margin-top: 195px;
+  background-color: white;
+  flex-direction: column;
+  font-family: 'Inter','Arial','Sans-serif';
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 10px;
+}

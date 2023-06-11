@@ -1,0 +1,22 @@
+.edit-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  align-self: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin-left: 18px;
+  border: 0;
+  border-radius: 0;
+  background: black;
+  background-image: url(../../images/EditButton.svg);
+}
+@media screen and (max-width:768px) {
+  .edit-button {
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+  }
+}
