@@ -41,7 +41,13 @@ function App() {
 
   const [selectedCard, setSelectedCard] = useState({});
 
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({ 
+   _id: '',
+   email: '',
+   name: '',
+   about: '',
+   avatar: ''
+});
 
   const [cards, setCard] = useState([]);
 
