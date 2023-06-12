@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 62.84.113.201
+IP 62.84.113.201
 
 Frontend https://mesto.nksch.nomoredom.nomoredomains.rocks
 

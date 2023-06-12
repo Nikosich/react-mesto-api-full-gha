@@ -47,6 +47,6 @@ class Auth {
   }
 }
 
-const auth = new Auth("http://localhost:3000");
+const auth = new Auth("http://mesto.nksch.nomoredomains.rocks");
 
 export default auth;
