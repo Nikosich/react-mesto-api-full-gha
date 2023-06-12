@@ -47,6 +47,6 @@ class Auth {
   }
 }
 
-const auth = new Auth("mesto.nksch.nomoredomains.rocks");
+const auth = new Auth("https://auth.nomoreparties.co");
 
 export default auth;
