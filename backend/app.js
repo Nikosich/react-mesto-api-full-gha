@@ -2,9 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
-const path = require('path');
 const { errors } = require('celebrate');
 const errorHandler = require('./middlewares/errorHandler');
+const cors = require('./middlewares/cors');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const router = require('./routes');
 
@@ -20,7 +21,11 @@ mongoose.connect(
   },
 );
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(requestLogger);
+
+app.use(cors);
+
+app.use(errorLogger);
 
 app.use(helmet());
 

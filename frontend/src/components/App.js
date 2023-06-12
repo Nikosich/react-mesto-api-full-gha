@@ -70,7 +70,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i[0] === currentUser._id);
 
     api
 
@@ -212,7 +212,7 @@ function App() {
         .checkToken(token)
 
         .then((res) => {
-          setEmail(res.data.email);
+          setEmail(res.user.email);
 
           setIsLoggedIn(true);
 
@@ -296,12 +296,12 @@ function App() {
 
         <Routes>
           <Route
-            path="/sign-up"
+            path="/signup"
             element={<Register onRegister={handleRegistration} />}
           ></Route>
 
           <Route
-            path="/sign-in"
+            path="/signin"
             element={<Login onLogin={handleAuthorization} />}
           ></Route>
 

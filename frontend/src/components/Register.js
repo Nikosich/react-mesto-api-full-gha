@@ -58,7 +58,7 @@ function Register({ onRegister }) {
         </form>
         <p className="auth__clarification">
           Уже Зарегестрированы?{" "}
-          <Link className="auth__link" to="/sign-in">
+          <Link className="auth__link" to="/signin">
             Войти
           </Link>
         </p>
