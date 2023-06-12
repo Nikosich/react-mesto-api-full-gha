@@ -18,7 +18,6 @@ class Api {
   getInitialCards() {
     return this._request(`/cards`, {
       headers: this._headers,
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
   }
 
@@ -78,7 +77,7 @@ class Api {
 export const api = new Api({
   baseUrl: 'http://localhost:3000',
   headers: {
-    'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
     "Content-Type": "application/json",
   },
 });

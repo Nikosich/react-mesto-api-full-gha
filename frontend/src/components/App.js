@@ -217,8 +217,10 @@ function App() {
 
         .checkToken(token)
 
-        .then((res) => {
-          setEmail(res.data.email);
+        .then((data) => {
+          setEmail(data.email);
+
+          setCurrentUser(data)
 
           setIsLoggedIn(true);
 
