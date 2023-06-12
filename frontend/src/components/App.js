@@ -245,7 +245,7 @@ function App() {
           isSuccess: true,
         });
 
-        navigate("/sign-in");
+        navigate("/signin");
       })
 
       .catch((err) => {
@@ -296,12 +296,12 @@ function App() {
 
         <Routes>
           <Route
-            path="/sign-up"
+            path="/signup"
             element={<Register onRegister={handleRegistration} />}
           ></Route>
 
           <Route
-            path="/sign-in"
+            path="/signin"
             element={<Login onLogin={handleAuthorization} />}
           ></Route>
 

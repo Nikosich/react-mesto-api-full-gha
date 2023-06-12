@@ -6,13 +6,13 @@ function Header({loggedIn, onSignOut, email}) {
   return (
     <header className="header">
       <img className="header__logo" src={dev} alt="лого" />
-      {window.location.pathname === "/sign-up" && (
-        <Link to="/sign-in" className="header__link">
+      {window.location.pathname === "/signup" && (
+        <Link to="/signin" className="header__link">
           Войти
         </Link>
       )}
-      {window.location.pathname === "/sign-in" && (
-        <Link to="/sign-up" className="header__link">
+      {window.location.pathname === "/signin" && (
+        <Link to="/signup" className="header__link">
           Регистрация
         </Link>
       )}
