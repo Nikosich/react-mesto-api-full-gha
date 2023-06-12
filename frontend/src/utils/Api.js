@@ -75,7 +75,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://api.mesto.nksch.nomoredom.nomoredomains.rocks',
   headers: {
     'Authorization': `Bearer ${localStorage.getItem('token')}`,
     "Content-Type": "application/json",

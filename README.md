@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 62.84.113.201
 
-Frontend https://...
+Frontend https://mesto.nksch.nomoredom.nomoredomains.rocks
 
-Backend https://...
+Backend https://api.mesto.nksch.nomoredom.nomoredomains.rocks
