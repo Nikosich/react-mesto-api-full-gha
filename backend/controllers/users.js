@@ -71,7 +71,12 @@ const createUser = (req, res, next) => {
     avatar,
   } = req.body;
 
-  bcrypt.hash(password, 10)
+  return User.findOne({ email }).then((user) => {
+    if (user) {
+      next(new ConflictError('Этот email уже зарегестрирован'));
+    }
+    return bcrypt.hash(password, 10);
+  })
     .then((hash) => User.create({
       email,
       password: hash,
@@ -92,7 +97,7 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.code === 11000) {
-        throw new ConflictError('Этот email уже зарегестрирован');
+        next(new ConflictError('Этот email уже зарегестрирован'));
       } else if (err.name === 'ValidationError') {
         next(new ReqError('Некорректные данные'));
       } else {
