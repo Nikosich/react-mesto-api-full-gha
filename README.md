@@ -11,6 +11,6 @@
 
 IP 62.84.113.201
 
-Frontend https://mesto.nksch.nomoredom.nomoredomains.rocks
+Frontend https://mesto.nksch.nomoredomains.rocks
 
 Backend https://api.mesto.nksch.nomoredom.nomoredomains.rocks
