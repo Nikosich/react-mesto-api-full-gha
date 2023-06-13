@@ -5,7 +5,7 @@ const URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()
 const validateSignup = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(6),
+    password: Joi.string().required(),
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
     avatar: Joi
@@ -17,7 +17,7 @@ const validateSignup = celebrate({
 const validateSignin = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(6),
+    password: Joi.string().required(),
   }),
 });
 
@@ -29,8 +29,8 @@ const validateUserId = celebrate({
 
 const validateUserUp = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    name: Joi.string().required().min(2).max(30),
+    about: Joi.string().required().min(2).max(30),
   }),
 });
 
@@ -38,6 +38,7 @@ const validateAvatar = celebrate({
   body: Joi.object().keys({
     avatar: Joi
       .string()
+      .required()
       .pattern(URL_REGEX),
   }),
 });

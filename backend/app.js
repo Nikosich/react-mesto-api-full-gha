@@ -21,8 +21,6 @@ mongoose.connect(
   },
 );
 
-app.use(express.json());
-
 app.use(helmet());
 
 app.use(bodyParser.json());

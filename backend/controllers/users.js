@@ -29,10 +29,10 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
-const getUsers = (req, res) => {
+const getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.status(200).send(users))
-    .catch(() => res.status(500).send({ message: 'Ошибка сервера' }));
+    .catch(next);
 };
 
 const getUserById = (req, res, next) => {
@@ -41,7 +41,7 @@ const getUserById = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден');
       }
-      res.send({ data: user });
+      res.send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -65,17 +65,8 @@ const getUserMe = (req, res, next) => {
 const createUser = (req, res, next) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
-    next(new ReqError('Некоректные данные.'));
-  }
+  bcrypt.hash(password, 10)
 
-  return User.findOne({ email }).then((user) => {
-    if (user) {
-      next(new ConflictError('Этот email уже зарегестрирован'));
-    }
-
-    return bcrypt.hash(password, 10);
-  })
     .then((hash) => User.create({
       email,
       password: hash,

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const bcrypt = require('bcryptjs');
+const { URL_REGEX } = require('../utils/consts');
 
 const userSchema = new mongoose.Schema(
   {
@@ -19,9 +19,8 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String,
       validate: {
-        validator: (v) => {
-          validator.isURL(v);
-        },
+        validator: (url) => URL_REGEX.test(url),
+        message: 'Нужно ввести URL',
       },
       default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
     },
@@ -42,25 +41,6 @@ const userSchema = new mongoose.Schema(
   },
   {
     versionKey: false,
-    statics: {
-      findUserByCredentials(email, password) {
-        return this
-          .findOne({ email })
-          .select('+password')
-          .then((user) => {
-            if (user) {
-              return bcrypt.compare(password, user.password)
-                .then((matched) => {
-                  if (matched) return user;
-
-                  return Promise.reject();
-                });
-            }
-
-            return Promise.reject();
-          });
-      },
-    },
   },
 );
 
