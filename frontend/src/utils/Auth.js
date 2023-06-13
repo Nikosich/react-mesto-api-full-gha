@@ -47,6 +47,6 @@ class Auth {
   }
 }
 
-const auth = new Auth("http://mesto.nksch.nomoredomains.rocks");
+const auth = new Auth("https://mesto.nksch.nomoredomains.rocks");
 
 export default auth;
