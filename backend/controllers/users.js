@@ -71,12 +71,7 @@ const createUser = (req, res, next) => {
     avatar,
   } = req.body;
 
-  return User.findOne({ email }).then((user) => {
-    if (user) {
-      next(new ConflictError('Этот email уже зарегестрирован'));
-    }
-    return bcrypt.hash(password, 10);
-  })
+  bcrypt.hash(password, 10)
     .then((hash) => User.create({
       email,
       password: hash,
