@@ -63,24 +63,33 @@ const getUserMe = (req, res, next) => {
 };
 
 const createUser = (req, res, next) => {
-  const { email, password } = req.body;
+  const {
+    email,
+    password,
+    name,
+    about,
+    avatar,
+  } = req.body;
 
   bcrypt.hash(password, 10)
-
     .then((hash) => User.create({
       email,
       password: hash,
-      name: req.body.name,
-      about: req.body.about,
-      avatar: req.body.avatar,
+      name,
+      about,
+      avatar,
     }))
-    .then((user) => res.status(201).send({
-      name: user.name,
-      about: user.about,
-      avatar: user.avatar,
-      _id: user._id,
-      email: user.email,
-    }))
+    .then((user) => {
+      const { _id } = user;
+
+      return res.status(201).send({
+        email,
+        name,
+        about,
+        avatar,
+        _id,
+      });
+    })
     .catch((err) => {
       if (err.code === 11000) {
         next(new ConflictError('Пользователь с таким email уже существует'));
